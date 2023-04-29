@@ -1,0 +1,93 @@
+﻿@{ 
+    dynamic data = ViewBag.data;
+    dynamic result = ViewBag.Type;
+    //ViewData["Title"]="Home";
+    var book = ViewData["book"] as BookModel;
+}
+@inject Deeps.BookStore.Repository.IBookRepository _bookRepository;
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <h3>Hello Welcome to BookStore App. I am @ViewBag.name </h3>
+        <h2>Book Name</h2>
+        @foreach (var item in await _bookRepository.GetAllBooks())
+        {
+             <h3>@item.Title</h3>
+        };
+        
+        <p>
+            @data.name   @data.id
+        </p>
+        <p> @result.Id @result.Title</p>
+        <h3>@ViewData["property"]</h3>
+        <h2>ID = @book.Id</h2>
+        <h2>Author = @book.Author</h2>
+
+        @*<div class="mt-3 p-1 bg-primary text-white rounded ">
+                @DateTime.Now.ToString("dd-mm-yy")
+                @{
+                    int a = 3;
+                    int b = 5;
+                    int c = a + b;
+                }
+                <h1>Sum = @c</h1>
+                <h1>Multiplication =@(a*b)</h1>
+                <h3>My Email is deeps.dpk@gmail.com</h3>
+                @{
+                    var list = new List<int>() { 1, 2, 3, 4, 5, 6 };
+                }
+                @foreach (var x in list)
+                {
+                    <h3>@x</h3>
+                }
+                @for (int i = 0; i < 5; i++)
+                {
+                    <h4>
+                        Hello World
+                    </h4>
+                }
+                <img src="~/MyStaticFiles\Booklogo(1).jpg" alt="No Image" width="33" height="33" />
+                <img src="~/MyStaticFiles\Book logo (3).jpg" alt="No Image" width="33" height="33" />
+            </div>*@
+    </div>
+</section>
+   
+    <div class="container">
+        <h3>Top Books</h3>
+        @await Component.InvokeAsync("TopBooks")
+        
+        @*<vc:top-books></vc:top-books>*@
+        
+        
+        @*<div class="row">
+            <div class="col-md-4">
+                <partial name="_bookthumbnail" model="@new BookModel()"/>
+            </div>
+            <div class="col-md-4">
+                <partial name="_bookthumbnail" model="@new BookModel()" />
+            </div>
+            <div class="col-md-4">
+                <partial name="_bookthumbnail" model="@new BookModel()" />
+            </div>
+
+        </div>*@
+    </div>
+
+@section scripts{
+    @*<script>
+            $(document).ready(function(){
+                alert("The Document is Loaded Successfully");
+            })
+        </script>*@
+}
+@section BreadCrum{
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Index</a></li>
+            </ol>
+        </nav>
+    </div>
+
+}

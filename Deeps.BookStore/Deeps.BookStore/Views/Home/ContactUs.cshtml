@@ -1,0 +1,22 @@
+﻿
+@{
+    //Layout = "_Layout";
+    ViewData["Title"] = "ContactUs";
+}
+<div class="container">
+    <h1> This is a Contact Us Page</h1>
+    <h3>@ViewBag.id</h3>
+    <h3>@ViewBag.name</h3>
+</div>
+
+@section BreadCrum{
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Contact Us</a></li>
+            </ol>
+        </nav>
+    </div>
+
+}

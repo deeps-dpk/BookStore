@@ -1,0 +1,39 @@
+﻿@model IEnumerable<BookModel>
+@{
+    ViewData["Title"] = "All Books";
+}
+
+
+<div class="container">
+    <h6>All Books</h6>
+    @if (ViewBag.issuccess)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            The book with id =
+            <strong>@ViewBag.bookid</strong> has been deleted Successfully.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    <div class="row">
+        @foreach (var book in Model)
+        {
+            <div class="col-md-4">
+                <partial name="_bookthumbnail" model="@book" />
+            </div>
+        }
+    </div>
+</div>
+@section BreadCrum{
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Book</a></li>
+                <li class="breadcrumb-item"><a href="#">All Books</a></li>
+            </ol>
+        </nav>
+    </div>
+
+}
+
+
+

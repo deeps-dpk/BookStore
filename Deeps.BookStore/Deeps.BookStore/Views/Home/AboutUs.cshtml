@@ -1,0 +1,22 @@
+﻿@{ 
+    var book = ViewData["book"] as BookModel;
+    //ViewData["Title"] = "AboutUs";
+}
+
+    <h1>This is a AboutUs Page</h1>
+    <h2>@ViewData["name"]</h2>
+    <h2>@ViewData["id"]</h2>
+    <h2>@book.Id   @book.Title</h2>
+
+
+@section BreadCrum{
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">About Us</a></li>
+            </ol>
+        </nav>        
+    </div>
+
+}

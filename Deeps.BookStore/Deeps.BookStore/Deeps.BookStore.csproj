@@ -4,4 +4,55 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="wwwroot\images\No Image\**" />
+    <Content Remove="wwwroot\images\No Image\**" />
+    <EmbeddedResource Remove="wwwroot\images\No Image\**" />
+    <None Remove="wwwroot\images\No Image\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20230416210118_init.cs" />
+    <Compile Remove="Migrations\20230416210118_init.Designer.cs" />
+    <Compile Remove="Migrations\20230416210543_init.cs" />
+    <Compile Remove="Migrations\20230416210543_init.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="MyStaticFiles\Book logo (3).jpg" />
+    <None Remove="MyStaticFiles\Booklogo(1).jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="MyStaticFiles\Book logo (3).jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="MyStaticFiles\Booklogo%281%29.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.32" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.32">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.32" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.32">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\books\cover\" />
+    <Folder Include="wwwroot\books\gallery\" />
+    <Folder Include="wwwroot\books\pdf\" />
+    <Folder Include="wwwroot\js\" />
+  </ItemGroup>
+
 </Project>
